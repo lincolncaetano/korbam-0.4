@@ -1,20 +1,21 @@
-Ionic 2 App Base
+Korbam App 0.4
 =====================
 
-This is the base template for Ionic 2 starter apps.
+Repositorio da versão 0.4 do app Korbam
 
 ## Using this project
 
-You'll need the Ionic CLI with support for v2 apps:
+Primeiramente clone no projeto para seu PC
+Acesse a pasta onde o projeto foi clona e execute o comando:
 
 ```bash
-$ npm install -g ionic
+$ npm install
 ```
 
-Then run:
+Depois execute:
 
 ```bash
-$ ionic start myApp
+$ ionic serve
 ```
 
 More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/docs/v2/getting-started/) page.
