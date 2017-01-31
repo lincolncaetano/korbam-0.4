@@ -18,4 +18,4 @@ Depois execute:
 $ ionic serve
 ```
 
-More info on this can be found on the Ionic [Getting Started](http://ionicframework.com/docs/v2/getting-started/) page.
+Para mais informações sobre ionic2 [Comece aqui](http://ionicframework.com/docs/v2/) page.
