@@ -1,0 +1,27 @@
+<!--
+  Generated template for the HoraModal page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Horário</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item class="itemCadastrarEvento">
+    <ion-label stacked class="labelCadastrarEvento">Hora inicial</ion-label>
+    <ion-datetime class="inputModificado2" displayFormat="HH:mm" [(ngModel)]="eventoCad.hrInicial" ngModel name="hrInicial" #hrInicial="ngModel" required></ion-datetime>
+  </ion-item>
+
+  <ion-fab bottom center (click)="dismiss()">
+    <button ion-fab color="add"><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

@@ -1,0 +1,42 @@
+<!--
+  Generated template for the CompartilharmentoModal page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Adicionar Pessoas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-searchbar [(ngModel)]="searchQuery" (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list #list style="position: absolute; z-index: 2; width: 100%;">
+      <ion-item *ngFor="let item of items" (click)="adicionarPessoaEvento(item)">
+          <ion-avatar item-left>
+            <img src="{{item.fotoProfile}}">
+          </ion-avatar>
+          <h2 opnion>{{item.username}}</h2>
+      </ion-item>
+  </ion-list>
+
+  <ion-list padding>
+    <ion-item *ngFor="let item of itemsCad; let i=index;">
+      <ion-avatar item-left>
+        <img src="{{item.usuario.fotoProfile}}">
+      </ion-avatar>
+      {{ item.usuario.username }}
+      <ion-icon name='close' item-right color="danger" *ngIf="item.usuario.id != eventoCad.usuario.id && idUsuarioLog == eventoCad.usuario.id" (click)="excluirPessoaEvento(item, i)"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab bottom center (click)="dismiss()">
+    <button ion-fab color="add"><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

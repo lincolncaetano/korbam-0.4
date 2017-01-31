@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar dark>
+    <ion-title>{{usuario.username}}</ion-title>
+    <ion-buttons end>
+      <button ion-button (click)="editar()" >
+        <ion-icon name="settings"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="perfil">
+
+    <div id="capa"><img src="assets/img/capa.jpg"></div>
+
+    <img class="imagemPerfil" src="{{usuario.fotoProfile}}" *ngIf="usuario.fotoProfile != null"/>
+    <img class="imagemPerfil" src="http://www.iconsfind.com/wp-content/uploads/2015/11/20151112_5643f331cf8c4.png" *ngIf="usuario.fotoProfile == null">
+
+    <div class="perfilInfo">
+
+        <hr class="linhaSeparadoraPerfil" />
+
+        <div id="nomePerfil">
+            <h1>{{usuario.username}}</h1>
+        </div>
+
+        <hr class="linhaSeparadoraPerfil" />
+
+        <br />
+
+        <div id="nomeperfil">
+            <h2>{{usuario.nome}} {{usuario.ultimoNome}}</h2>
+        </div>
+
+        <div id="sexoperfil">
+            <h2>{{usuario.sexo}}</h2>
+        </div>
+
+        <div id="idade" *ngIf="usuario.idade != null">
+            <h2>{{usuario.idade}} anos</h2>
+        </div>
+
+        <div id="estadoCivil">
+            <h2>{{usuario.estadoCivil}}</h2>
+        </div>
+
+        <div id="contato">
+            <h2>{{usuario.email}}</h2>
+            <h2>{{usuario.celular}}</h2>
+        </div>
+
+        <div id="contato" *ngIf="usuario.cidade != null">
+            <h2>{{usuario.cidade}}, {{usuario.estado}}, {{usuario.pais}}</h2>
+        </div>
+
+    </div>
+
+</ion-content>

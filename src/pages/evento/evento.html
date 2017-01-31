@@ -1,0 +1,106 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{usuarioEvento.evento.titulo}}</ion-title>
+    <ion-buttons end>
+      <button ion-button *ngIf="isAdmin" (click)="confirmaExclusao()" >
+        <ion-icon name="trash"></ion-icon>
+      </button>
+      <button ion-button *ngIf="isAdmin" (click)="configurarEvento()" >
+        <ion-icon name="cog"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding class="bg-branco">
+
+  <ion-item *ngIf="usuarioEvento.status == 'P'">
+      Aceitar convite
+    <button ion-button item-right style="color: green"  (click)="respostaConvite('A')" clear>
+      <ion-icon name="checkmark-circle" ></ion-icon>
+    </button>
+    <<button ion-button  item-right style="color: red" (click)="respostaConvite('R')" clear>
+      <ion-icon name="close-circle" ></ion-icon>
+    </button>
+  </ion-item>
+
+  <div>
+    <ion-segment [(ngModel)]="segEvento">
+      <ion-segment-button value="descricao">
+        Descrição
+      </ion-segment-button>
+      <ion-segment-button value="participantes">
+        Participantes
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="segEvento">
+    <ion-list *ngSwitchCase="'descricao'">
+
+      <ion-item class="itemCadastrarEvento">
+        <ion-label stacked class="labelCadastrarEvento">Nome do evento</ion-label>
+        <ion-label stacked class="labelCadastrarEvento">{{usuarioEvento.evento.titulo}}</ion-label>
+      </ion-item>
+
+      <ion-item class="itemCadastrarEvento">
+        <ion-label stacked class="labelCadastrarEvento">Descrição</ion-label>
+        <ion-label stacked class="labelCadastrarEvento">{{usuarioEvento.evento.descricao}}</ion-label>
+      </ion-item>
+
+      <ion-item class="itemCadastrarEvento">
+        <ion-label stacked class="labelCadastrarEvento">Data</ion-label>
+        <ion-label stacked class="labelCadastrarEvento">{{usuarioEvento.evento.momento.format('DD/MM')}} {{usuarioEvento.evento.momento.format('dddd')}}</ion-label>
+      </ion-item>
+
+      <ion-row class="rowCad">
+
+        <ion-col class="rowCad" width-50>
+
+          <ion-item class="itemCadastrarEvento">
+            <ion-label stacked class="labelCadastrarEvento">Hora inicial</ion-label>
+            <ion-label stacked class="labelCadastrarEvento">{{usuarioEvento.evento.hrInicial}}</ion-label>
+          </ion-item>
+
+        </ion-col>
+
+        <ion-col class="rowCad" width-50>
+
+          <ion-item class="itemCadastrarEvento">
+            <ion-label stacked class="labelCadastrarEvento">Hora final</ion-label>
+            <ion-label stacked class="labelCadastrarEvento">{{usuarioEvento.evento.hrFinal}}</ion-label>
+          </ion-item>
+
+        </ion-col>
+
+      </ion-row>
+
+
+    </ion-list>
+
+    <div *ngSwitchCase="'participantes'">
+
+        <div *ngIf="isAdmin">
+          <button ion-button  class="botaoCriarGrupo" style="margin-top: 20px;" (click)="adicionarUsuario()" small block><ion-icon name="person-add"></ion-icon>adicionar participante</button>
+        </div>
+
+        <ion-list>
+
+          <ion-item *ngFor="let item of listaUsuarios" (click)="presentActionSheet(item)">
+            <ion-label>{{item.username}}</ion-label>
+            <ion-avatar item-left>
+              <img src="{{item.fotoProfile}}" *ngIf="item.fotoProfile != null"/>
+              <img src="http://www.iconsfind.com/wp-content/uploads/2015/11/20151112_5643f331cf8c4.png" *ngIf="item.fotoProfile == null">
+            </ion-avatar>
+            <ion-note item-right *ngIf="item.id == usuarioEvento.evento.usuario.id">
+             admin
+            </ion-note>
+          </ion-item>
+
+        </ion-list>
+    </div>
+
+  </div>
+
+</ion-content>

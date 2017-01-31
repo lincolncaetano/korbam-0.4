@@ -1,0 +1,503 @@
+.headerCalendario {
+		background-color: #79c3c8;
+		font-size: 20px;
+		padding-top: 2px;
+		padding-bottom: 2px;
+}
+
+.dataEsquerda {
+		margin-left: 10px;
+		padding-top: 6px;
+}
+
+.dataDireita {
+	  margin-left: auto;
+		margin-right: 5px;
+		font-size: 1.2rem;
+}
+
+#paginaAgenda {
+	margin-top: -1.6px !important;
+}
+
+.ng-datepicker > .controls {
+		padding: 0;
+		display: block;
+		height: 5px;
+}
+
+.ng-datepicker > .calendar, .ng-datepicker > .day-names {
+	width: 103% !important;
+}
+
+.ng-datepicker > .controls > .date {
+    color: #fff !important;
+    background-color: #4c799a;
+    min-height: 29px;
+    width: 236px !important;
+		padding-top: 5px !important;
+}
+
+.ng-datepicker > .controls > .left, .ng-datepicker > .controls > .right {
+    color: #fff !important;
+    background-color: #5d8db1;
+    min-height: 29px;
+    margin: 0;
+		padding-top: 5px !important;
+}
+
+.ng-datepicker > .calendar > span > span.day:hover {
+    background-color: #4c799a;
+}
+
+.ng-datepicker > .controls > .right {
+	padding-left: 20px !important;
+}
+
+.day {
+	//border: 1px solid #dadada;
+	color: black;
+	padding: 12px;
+}
+
+.day.selected {
+	background:  #79c3c8 !important;
+	color: white;
+	border-radius: 50%;
+}
+
+.day.ocupado {
+	background: url(../../img/pin.png) no-repeat;
+  background-position: 22px 0px;
+	background-size: 6px;
+}
+
+.day-name {
+    color: #828282 !important;
+		text-transform: uppercase;
+		font-size: 1.1rem;
+		margin-top: 5px;
+    //border: 1px solid #dadada;
+}
+
+.toolbar-personalizada {
+		background-color: #dadada !important;
+		border-bottom: 3px solid #000;
+}
+
+.agendarFechado .agendaEventoNome {
+		width: 97.3%;
+}
+
+.agendarAberto {
+		//background-color: #bdbdbd;
+}
+
+.BotoesFerramentasFechados {
+		display: block;
+}
+
+.ferramentasAgenda {
+    background-color: #eee;
+		width: 100%;
+		min-height: 46%;
+		margin-top: 5%;
+    position: absolute;
+}
+
+.botoesFerramentas {
+		float: right;
+		height: 50px;
+		width: 35%;
+		padding-top: 4px;
+		padding-right: 2px;
+		margin-top: 5px;
+    margin-right: 5px;
+		background-color: #d8dbde;
+		border: 2px solid #d8dbde;
+		border-left: none;
+}
+
+.agendaAdd {
+		margin-top: 8px;
+}
+
+.agendaEventoNome {
+		width: 97.2%;
+		height: 50px;
+		margin: 5px;
+		margin-right: 0;
+		color: #9b9fa2;
+		font-weight: bold;
+		border: 2px solid #f3f3f4;
+		border-right: none;
+		padding-left: 10px;
+}
+
+.nomeEventoAgenda {
+		width: 80%;
+		margin: 7px;
+		border: 2px solid #c8c8c8;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		background-color: #eee;
+		color: #000;
+}
+
+.botaoAddEventoAgenda {
+		font-size: 25px !important;
+	 	width: 25px;
+		height: 25px;
+		text-align: center;
+		border-radius: 50%;
+		float: right;
+		margin-top: 4px;
+		margin-right: 5px;
+		color: #fff !important;
+		background-color: #209860;
+}
+
+.ferramentasAgenda ion-icon:active {
+		font-size: 34px;
+}
+
+.ferramentasAgenda ion-icon {
+		color: #79c3c8;
+		font-size: 35px;
+		margin-left: 10px;
+}
+
+.ferramentasAgenda a {
+		text-decoration: none;
+}
+
+.ferramentaAgenda2 ion-icon {
+		color: #fff;
+		font-size: 280%;
+}
+
+.meusEventosAgenda {
+    width: 45%;
+    float: right;
+    position: relative;
+    background: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: #081421;
+    margin: 0;
+    padding: 0;
+}
+
+.modeloItemAgenda1 {
+	font-family: "Tahoma";
+	font-size: 25px;
+	color: #081522;
+	margin-top: 25px;
+	background-color: #14518c;
+	min-height: 100px;
+	position: relative;
+	box-sizing: border-box;
+}
+
+.modeloItemAgenda2 {
+	font-family: "Tahoma";
+	font-size: 25px;
+	color: #081522;
+	margin-top: 25px;
+	background-color: #14518c;
+	min-height: 100px;
+	position: relative;
+}
+/**
+.modeloItemAgenda1::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    margin-left: -0.5em;
+    bottom: -1.995em;
+    left: 88.9%;
+    box-sizing: border-box;
+    border: 1em solid black;
+    border-color: transparent transparent #f4061a #f4061a;
+    transform-origin: 0 0;
+    transform: rotate(-90deg);
+} */
+
+.modeloItemAgendaItens {
+	margin-top: 95px;
+}
+
+.modeloItemAgenda-data {
+	background-color: #fff;
+	width: 25%;
+	text-align: center;
+	height: 80px;
+    margin-top: -8px;
+    margin-left: 8px;
+    position: absolute;
+    border: 1px solid #dadada;
+}
+
+.modeloItemAgenda-data h3 {
+	font-size: 40px;
+	line-height: 1rem;
+}
+
+.modeloItemAgenda-data h4 {
+	font-size: 15px;
+}
+
+.modeloItemAgenda-membros {
+	display: inline-flex;
+}
+
+.modeloItemAgenda-avatares {
+    padding-top: 11px;
+    margin-left: 5px;
+}
+
+.modeloItemAgenda-local {
+	padding: 8px;
+}
+
+.modeloItemAgenda-nomeEvento {
+	font-size: 18px;
+	float: right;
+	margin-top: 10px;
+	margin-left: 105px;
+	padding-left: 10px;
+	background-color: #fff;
+	height: 25px;
+	width: 69%;
+	position: absolute;
+    border: 1px solid #dadada;
+}
+
+.modeloItemAgenda-nomeEvento p {
+	margin-top: 0;
+	color: #000;
+}
+
+.modeloItemAgenda-horario p {
+	color: #fff;
+	font-size: 15px;
+	margin-left: 105px;
+	padding-top: 50px;
+}
+
+.modeloItemAgenda-player {
+	margin-top: 10px;
+	margin-left: 105px;
+	background-color: #fff;
+	width: 18%;
+	position: absolute;
+	height: 70%;
+}
+
+.modeloItemAgenda-player ion-icon {
+	color: #081522;
+	margin-left: 10px;
+	font-size: 80px;
+}
+
+.modeloItemAgenda-horarioGravacao p {
+	color: #fff;
+	font-size: 15px;
+	margin-left: 175px;
+	padding-top: 50px;
+}
+
+.modeloItemAgenda-texto {
+	font-size: 12px;
+	background-color: #fff;
+	margin-left: 100px;
+	padding: 5px;
+	margin-top: 8px;
+	width: 72%;
+	max-height: 85%;
+	position: absolute;
+    border: 1px solid #dadada;
+}
+
+.modeloItemAgenda-texto2 {
+	font-size: 12px;
+	color: #fff;
+	padding: 5px;
+	margin-top: 8px;
+	padding-bottom: 40px;
+}
+
+
+ion-col[width-14] {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 10%;
+    -ms-flex: 0 0 10%;
+    flex: 0 0 14.2857%;
+    max-width: 14.2857;
+}
+
+// modal
+
+
+.center { text-align: center; }
+
+.is-hidden { display: none; }
+
+.botao {
+  letter-spacing: -0.5px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #333;
+  background: #e3e3e3;
+  padding: 10px 15px;
+  display: inline-block;
+  border-radius: 5px;
+  cursor: pointer;
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+  border-bottom-color: #999;
+}
+
+.botao:hover {
+  border-bottom-width: 1px;
+  margin-top: 3px;
+}
+
+.botao-primary {
+  background: #3498db;
+  color: #fff;
+}
+
+.botao-close {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAAowAAAKMB8MeazgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAB5SURBVDiNrZPRCcAwCEQfnUiySAZuF8kSWeH6Yz8KrQZMQAicJ+epAB0YwAmYJKIADLic0/GPPCbQAnLznCd/4NWUFfkgy1VjH8CryA95ApYltAiTRCZxpuoW+gz9WXE6NPeg+ra1UDIxGlWEObe4SGxY5fIxlc75Bkt9V4JS7KWJAAAAAElFTkSuQmCC59ef34356faa7edebc7ed5432ddb673d');
+}
+
+.page-title { font-weight: 300; }
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  z-index: 9999;
+}
+
+.modal-content {
+  padding: 20px;
+	margin-top: 30%;
+	margin-left: 25px !important;
+  width: 85%;
+  position: fixed;
+  background: #fff;
+  z-index: 9999;
+}
+
+//
+
+.tituloModal {
+	text-align: center;
+	font-size: 2rem;
+	font-weight: bold;
+	font-style: italic;
+	margin-bottom: 15px;
+	color: #000;
+}
+
+.checkbox-icon, .checkbox-checked  {
+	background-color: #178854 !important;
+	border-color: #209860 !important;
+}
+
+.checkboxChecklist {
+	margin-top: -34px;
+	margin-left: -10px;
+	float: right;
+}
+
+.botaoChecklistDeletar {
+	margin-right: 25px;
+	float: right;
+}
+
+.botaoChecklistAdd {
+			font-size: 50px !important;
+		 	width: 50px;
+			height: 50px;
+			text-align: center;
+			border-radius: 50%;
+			margin-top: 4px;
+			margin-left: 40%;
+			color: #fff !important;
+			background-color: #209860;
+}
+
+.pesquisaChecklist {
+			margin-left: 35px;
+}
+
+.pesquisaInputChecklist {
+			width: 92%;
+			margin: 7px;
+			border: 2px solid #dfdada;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			color: #a6a0a0;
+			font-weight: bold;
+			text-transform: uppercase;
+			text-align: center;
+}
+
+.nomePesquisaModal {
+	font-style: italic;
+	font-family: "Myriad Pro";
+	font-weight: bold;
+	font-size: 1.6rem !important;
+	color: #0b4783;
+}
+
+.pesquisaInputAddPessoas {
+			width: 92%;
+			margin: 7px;
+			border: 2px solid #dfdada;
+			border-top: none;
+			border-left: none;
+			border-right: none;
+			color: #a6a0a0;
+			font-weight: bold;
+			text-transform: uppercase;
+}
+
+.botaoPesquisaModal {
+			font-size: 25px !important;
+		 	width: 25px;
+			height: 25px;
+			border-radius: 50%;
+			float: left;
+			margin-left: -20px;
+			margin-top: 4px;
+			color: #0b4783 !important;
+}
+
+.botaoPesquisaDeletar {
+		float: right;
+		margin-top: -20px;
+}
+
+.horarioModal {
+	  margin-left: 50px;
+		font-size: 200%;
+		font-weight: bold;
+		color: #6c6969;
+}

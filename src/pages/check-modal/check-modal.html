@@ -1,0 +1,30 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>CHECK-LIST</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <ion-item>
+    <ion-input placeholder="Item" [(ngModel)]="itemCheck"></ion-input>
+  </ion-item>
+
+  <ion-list>
+    <ion-item *ngFor="let item of listaChecklist; let i=index;">
+      {{ item.descricao }}
+      <ion-icon name='close' item-right color="danger" (click)="excluirCheck(item, i)"></ion-icon>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab bottom center *ngIf="getShowBtnAdd()" (click)="salvaCheck()">
+    <button ion-fab color="add"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+  <ion-fab bottom center *ngIf="!getShowBtnAdd()" (click)="dismiss()">
+    <button ion-fab color="add"><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
+</ion-content>
