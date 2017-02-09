@@ -26,6 +26,7 @@ import {UsuarioEventoPage} from '../pages/usuario-evento/usuario-evento';
 import {CadastrarGrupoPage} from '../pages/cadastrar-grupo/cadastrar-grupo';
 import {GrupoPage} from '../pages/grupo/grupo';
 import {UsuarioGrupoPage} from '../pages/usuario-grupo/usuario-grupo';
+import {GrupoTarefaPage} from '../pages/grupo-tarefa/grupo-tarefa';
 
 import {EditarPerfilPage} from '../pages/editar-perfil/editar-perfil';
 
@@ -62,7 +63,8 @@ import {UsuarioService} from '../services/UsuarioService';
     PerfilUsuarioPage,
     CheckModal,
     CompartilharmentoModal,
-    HoraModal
+    HoraModal,
+    GrupoTarefaPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -92,7 +94,8 @@ import {UsuarioService} from '../services/UsuarioService';
     PerfilUsuarioPage,
     CheckModal,
     CompartilharmentoModal,
-    HoraModal
+    HoraModal,
+    GrupoTarefaPage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}, UsuarioService, UserData, Storage]
 })

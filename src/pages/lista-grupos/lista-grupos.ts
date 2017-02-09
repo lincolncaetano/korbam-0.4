@@ -1,8 +1,9 @@
-import {NavController, NavParams} from 'ionic-angular';
+import {NavController, NavParams, ModalController} from 'ionic-angular';
 import {Component} from '@angular/core';
 
 import {CadastrarGrupoPage} from '../cadastrar-grupo/cadastrar-grupo';
 import {GrupoPage} from '../grupo/grupo';
+import {GrupoTarefaPage} from '../grupo-tarefa/grupo-tarefa';
 
 import {GrupoService} from '../../services/GrupoService';
 
@@ -15,15 +16,18 @@ export class ListaGruposPage {
   private idUsuarioLogado : any;
   private retorno : any;
   public meusGrupos : any;
+  private meusGrupoTarefa : any;
+  private grupoCategoria: String;
 
 
   constructor(
     public nav: NavController,
     public navParams: NavParams,
+    public modalCtrl: ModalController,
     public service: GrupoService) {
 
     this.idUsuarioLogado = navParams.data;
-
+    this.grupoCategoria = 'tarefas';
     this.init();
   }
 
@@ -40,6 +44,23 @@ export class ListaGruposPage {
       err => this.logError(err),
       () => this.buscaGrupoComplete()
     );
+
+
+    this.service.pesquisaGrupoTarefaPorUsuario(this.idUsuarioLogado)
+    .subscribe(
+      data => this.retorno = data,
+      err => this.logError(err),
+      () => this.buscaGrupoTarefaComplete()
+    );
+
+  }
+
+  buscaGrupoTarefaComplete(){
+    if(this.retorno != false){
+      this.meusGrupoTarefa = this.retorno;
+    }else{
+      this.meusGrupoTarefa = [];
+    }
   }
 
 
@@ -75,6 +96,14 @@ export class ListaGruposPage {
       console.log('Async operation has ended');
       refresher.complete();
     }, 2000);
+  }
+
+  openGrupoTarefaModal() {
+
+    let modal = this.modalCtrl.create(GrupoTarefaPage);
+    modal.present();
+
+
   }
 
 }

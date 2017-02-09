@@ -47,4 +47,14 @@ export class GrupoService {
     return this.http.get(url).map(res => res.json());
   }
 
+  salvarGrupoTarefa(grupoTarefa): any {
+    var url = ServerSettings.URL_SERVER+'/salvarGrupoTarefa';
+    return this.http.post(url, JSON.stringify({grupoTarefa : grupoTarefa}), {headers: this.headers}).map(res => res.json());
+  }
+
+  pesquisaGrupoTarefaPorUsuario(idUsuario): any{
+    var url = ServerSettings.URL_SERVER+'/pesquisaGrupoTarefaPorUsuario/'+idUsuario;
+    return this.http.get(url).map(res => res.json());
+  }
+
 }

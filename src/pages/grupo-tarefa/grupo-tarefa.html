@@ -1,0 +1,48 @@
+<!--
+  Generated template for the GrupoTarefa page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Tarefas</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item class="itemCadastrarEvento">
+    <ion-label stacked class="labelCadastrarEvento">Nome</ion-label>
+    <ion-input [(ngModel)]="grupoTarefa.nome" ngModel name="nome" type="text" #nome="ngModel" required></ion-input>
+  </ion-item>
+
+  <ion-list radio-group [(ngModel)]="grupoTarefa.cor">
+    <ion-list-header>
+      Cor
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label style="color: black">Black</ion-label>
+      <ion-radio checked="true" value="black"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: red">Red</ion-label>
+      <ion-radio value="red"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label style="color: blue">Blue</ion-label>
+      <ion-radio value="blue"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab bottom center (click)="dismiss()">
+    <button ion-fab color="add"><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>

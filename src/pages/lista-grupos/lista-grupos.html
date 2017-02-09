@@ -1,7 +1,20 @@
 <ion-header>
-  <ion-navbar>
-    <ion-searchbar ></ion-searchbar>
+  <ion-navbar no-border-bottom>
+    <ion-title>
+      Grupos
+    </ion-title>
   </ion-navbar>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="grupoCategoria">
+      <ion-segment-button value="tarefas">
+        Tarefas
+      </ion-segment-button>
+      <ion-segment-button value="usuarios">
+        Usuarios
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 
@@ -12,18 +25,37 @@
   </ion-refresher>
 
 
-  <button ion-button full class="botaoCriarGrupo" (click)="criarGrupo()" small block><ion-icon name="person-add"></ion-icon>novo grupo</button>
+  <div [ngSwitch]="grupoCategoria">
+    <ion-list *ngSwitchCase="'tarefas'" style="color: #000">
+
+      <ion-item *ngFor="let item of meusGrupoTarefa" [ngStyle]="{'background-color': item.cor}" (click)="abreGrupo(item)">
+        <ion-icon name="md-contacts" item-left></ion-icon>
+          {{item.nome}}
+        <ion-icon name="md-arrow-round-forward" item-right></ion-icon>
+      </ion-item>
 
 
-  <ion-list style="color: #000">
+      <ion-fab center bottom>
+        <button ion-fab color="light" (click)="openGrupoTarefaModal()"><ion-icon name="person-add"></ion-icon></button>
+      </ion-fab>
 
-    <ion-item class="grupoListaItem" *ngFor="let item of meusGrupos" (click)="abreGrupo(item)">
-      <ion-icon name="md-contacts" item-left></ion-icon>
-        {{item.nome}}
-      <ion-icon name="md-arrow-round-forward" item-right></ion-icon>
-    </ion-item>
+    </ion-list>
 
-  </ion-list>
+    <ion-list *ngSwitchCase="'usuarios'" style="color: #000">
+
+      <ion-item class="grupoListaItem" *ngFor="let item of meusGrupos" (click)="abreGrupo(item)">
+        <ion-icon name="md-contacts" item-left></ion-icon>
+          {{item.nome}}
+        <ion-icon name="md-arrow-round-forward" item-right></ion-icon>
+      </ion-item>
+      <ion-fab center bottom>
+        <button ion-fab color="light" (click)="criarGrupo()"><ion-icon name="person-add"></ion-icon></button>
+      </ion-fab>
+    </ion-list>
+  </div>
+
+
+
 
 
 </ion-content>

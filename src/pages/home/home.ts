@@ -32,9 +32,6 @@ export class HomePage {
     this.name = "Nome";
     this.login = {};
     this.submitted = false;
-
-
-
   }
 
   onSubmit(form){
