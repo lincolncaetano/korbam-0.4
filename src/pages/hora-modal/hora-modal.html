@@ -17,8 +17,56 @@
 
   <ion-item class="itemCadastrarEvento">
     <ion-label stacked class="labelCadastrarEvento">Hora inicial</ion-label>
-    <ion-datetime class="inputModificado2" displayFormat="HH:mm" [(ngModel)]="eventoCad.hrInicial" ngModel name="hrInicial" #hrInicial="ngModel" required></ion-datetime>
+    <ion-datetime class="inputModificado2" displayFormat="HH:mm" [(ngModel)]="eventoCad.hrInicial" ngModel name="hrInicial" #hrInicial="ngModel"></ion-datetime>
   </ion-item>
+
+  <ion-item class="itemCadastrarEvento">
+    <ion-label stacked class="labelCadastrarEvento">Grupo Tarefa</ion-label>
+    <ion-select [(ngModel)]="eventoCad.grupoTarefa.id" ngModel name="grupoTarefa" #grupoTarefa="ngModel">
+      <ion-option value="0"></ion-option>
+      <ion-option value="{{item.id}}" *ngFor="let item of meusGrupoTarefa">{{item.nome}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item class="itemCadastrarEvento">
+    <ion-label stacked class="labelCadastrarEvento">Repetir</ion-label>
+    <ion-select [(ngModel)]="eventoCad.repetir" ngModel name="repetir" #repetir="ngModel">
+      <ion-option value="0" selected="true">não</ion-option>
+      <ion-option value="day">diariamente</ion-option>
+      <ion-option value="week">semanalmente</ion-option>
+      <ion-option value="month">mensalmente</ion-option>
+      <ion-option value="year">anualmente</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item class="itemCadastrarEvento">
+    <ion-label stacked class="labelCadastrarEvento">Lembrete</ion-label>
+    <ion-select [(ngModel)]="eventoCad.lembrete1" ngModel name="lembrete1" #lembrete1="ngModel">
+      <ion-option value="1">30 min antes</ion-option>
+      <ion-option value="2">1 hr antes</ion-option>
+      <ion-option value="3">2 hrs antes</ion-option>
+      <ion-option value="4">4 hrs antes</ion-option>
+      <ion-option value="5">8 hrs antes</ion-option>
+      <ion-option value="6">12 hrs antes</ion-option>
+      <ion-option value="7">1 dia antes</ion-option>
+      <ion-option value="8">2 dias antes</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item class="itemCadastrarEvento">
+    <ion-label stacked class="labelCadastrarEvento">Lembrete 2</ion-label>
+    <ion-select  [(ngModel)]="eventoCad.lembrete2" ngModel name="lembrete2" #lembrete2="ngModel">
+      <ion-option value="1">30 min antes</ion-option>
+      <ion-option value="2">1 hr antes</ion-option>
+      <ion-option value="3">2 hrs antes</ion-option>
+      <ion-option value="4">4 hrs antes</ion-option>
+      <ion-option value="5">8 hrs antes</ion-option>
+      <ion-option value="6">12 hrs antes</ion-option>
+      <ion-option value="7">1 dia antes</ion-option>
+      <ion-option value="8">2 dias antes</ion-option>
+    </ion-select>
+  </ion-item>
+
 
   <ion-fab bottom center (click)="dismiss()">
     <button ion-fab color="add"><ion-icon name="close"></ion-icon></button>

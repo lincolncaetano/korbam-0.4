@@ -62,7 +62,7 @@
               </ion-item>
             </ion-col>
             <ion-col width-20>
-              <button ion-fab color="add" icon-only (click)="cadastrarEvento()">
+              <button ion-fab color="add" icon-only [disabled]="eventoCad.titulo == null || eventoCad.titulo == ''" (click)="cadastrarEvento()">
                 <ion-icon name="add"></ion-icon>
               </button>
             </ion-col>

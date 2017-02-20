@@ -1,4 +1,4 @@
-import {NavController, NavParams, LoadingController} from 'ionic-angular';
+import {NavController, NavParams, LoadingController, ViewController} from 'ionic-angular';
 import {Component} from '@angular/core';
 
 import {GrupoService} from '../../services/GrupoService';
@@ -21,6 +21,7 @@ export class UsuarioGrupoPage {
     public nav: NavController,
     public navParams: NavParams,
     public service: GrupoService,
+    public viewCtrl: ViewController,
     public loadingController: LoadingController) {
 
     this.searchQuery = '';
@@ -63,15 +64,15 @@ export class UsuarioGrupoPage {
   }
 
 
-  getItems(searchbar) {
+  getItems(ev: any) {
     // Reset items back to all of the items
     //this.initializeItems();
 
     // set q to the value of the searchbar
-    var q = searchbar.value;
+    var q = ev.target.value;
 
     // if the value is an empty string don't filter the items
-    if (q.trim() == '') {
+    if (q == null || q.trim() == '') {
       this.items = this.listaResp;
       return false;
     }
@@ -133,6 +134,10 @@ export class UsuarioGrupoPage {
     this.nav.popToRoot();
 
   //  }
+  }
+
+  fechar(){
+      this.viewCtrl.dismiss();
   }
 
 }

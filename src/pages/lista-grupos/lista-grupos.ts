@@ -29,6 +29,7 @@ export class ListaGruposPage {
     this.idUsuarioLogado = navParams.data;
     this.grupoCategoria = 'tarefas';
     this.init();
+
   }
 
   ionViewDidEnter() {
@@ -85,12 +86,7 @@ export class ListaGruposPage {
 
   doRefresh(refresher) {
 
-    this.service.buscaGruposIdUsuario(this.idUsuarioLogado)
-    .subscribe(
-      data => this.retorno = data,
-      err => this.logError(err),
-      () => this.buscaGrupoComplete()
-    );
+    this.init();
 
     setTimeout(() => {
       console.log('Async operation has ended');
@@ -98,10 +94,35 @@ export class ListaGruposPage {
     }, 2000);
   }
 
-  openGrupoTarefaModal() {
+  openGrupoTarefaModal(grupoTarefa) {
 
-    let modal = this.modalCtrl.create(GrupoTarefaPage);
-    modal.present();
+    if(grupoTarefa != null){
+
+      let eventJson = {grupoSel: grupoTarefa, idUsuarioLogado : this.idUsuarioLogado};
+      let modal = this.modalCtrl.create(GrupoTarefaPage, eventJson);
+      modal.present();
+
+    }else{
+
+      let modal = this.modalCtrl.create(GrupoTarefaPage);
+      modal.present();
+    }
+
+
+  }
+
+  openGrupoModal(grupo) {
+
+    if(grupo != null){
+      let eventJson = {grupoSel: grupo, idUsuarioLogado : this.idUsuarioLogado};
+      let modal = this.modalCtrl.create(CadastrarGrupoPage, eventJson);
+      modal.present();
+
+    }else{
+      let eventJson = {idUsuarioLogado : this.idUsuarioLogado};
+      let modal = this.modalCtrl.create(CadastrarGrupoPage, eventJson);
+      modal.present();
+    }
 
 
   }

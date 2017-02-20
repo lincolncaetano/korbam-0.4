@@ -5,11 +5,15 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
+  <ion-toolbar>
     <ion-title>Tarefas</ion-title>
-  </ion-navbar>
 
+    <ion-buttons end>
+      <button ion-button icon-only (click)="fechar()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 
@@ -42,7 +46,7 @@
   </ion-list>
 
   <ion-fab bottom center (click)="dismiss()">
-    <button ion-fab color="add"><ion-icon name="close"></ion-icon></button>
+    <button ion-fab color="add"><ion-icon name="checkmark"></ion-icon></button>
   </ion-fab>
 
 </ion-content>

@@ -27,6 +27,12 @@ export class GrupoTarefaPage {
       (data) => this.id = data
     );
 
+    let grupo = this.navParams.get('grupoSel');
+
+    if(grupo != null){
+      this.grupoTarefa = grupo;
+    }
+
   }
 
   ionViewDidLoad() {
@@ -35,8 +41,6 @@ export class GrupoTarefaPage {
 
   dismiss(){
     this.grupoTarefa.usuario = {id: this.id};
-    console.log(this.grupoTarefa);
-
     this.service.salvarGrupoTarefa(this.grupoTarefa)
     .subscribe(
       data => this.retorno = data,
@@ -53,6 +57,10 @@ export class GrupoTarefaPage {
     if(this.retorno != false){
         this.viewCtrl.dismiss();
     }
+  }
+
+  fechar(){
+      this.viewCtrl.dismiss();
   }
 
 }

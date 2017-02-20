@@ -1,4 +1,4 @@
-import {NavController, LoadingController, NavParams, ToastController} from 'ionic-angular';
+import {NavController, LoadingController, NavParams, ToastController, ViewController, ModalController} from 'ionic-angular';
 import {Component} from '@angular/core';
 
 import {UsuarioService} from '../../services/UsuarioService';
@@ -22,6 +22,8 @@ export class CadastrarGrupoPage {
     public nav: NavController,
     public service: UsuarioService,
     public navParams: NavParams,
+    public viewCtrl: ViewController,
+    public modalCtrl: ModalController,
     public loadingController: LoadingController,
     public toastCtrl: ToastController ) {
 
@@ -29,8 +31,10 @@ export class CadastrarGrupoPage {
     this.grupoCad = {};
 
     this.submitted = false;
-    this.idUsuarioLogado = navParams.get("idUsuarioLogado");
+    this.idUsuarioLogado = this.navParams.get("idUsuarioLogado");
 
+
+console.log(this.idUsuarioLogado);
     this.grupoEdit = navParams.get("grupoEdit");
     if(this.grupoEdit != null){
       this.grupoCad = this.grupoEdit ;
@@ -52,7 +56,11 @@ export class CadastrarGrupoPage {
       this.grupoCad.usuario = {id: this.idUsuarioLogado};
 
       setTimeout(() => {
-        this.nav.push(UsuarioGrupoPage, {grupo: this.grupoCad});
+        //this.nav.push(UsuarioGrupoPage, {grupo: this.grupoCad});
+        this.viewCtrl.dismiss();
+        let eventJson = {grupo: this.grupoCad, idUsuarioLogado : this.idUsuarioLogado};
+        let modal = this.modalCtrl.create(UsuarioGrupoPage, eventJson);
+        modal.present();
       }, 500);
 
       setTimeout(() => {
@@ -65,7 +73,7 @@ export class CadastrarGrupoPage {
       console.log(form.titulo);
 
       let toast = this.toastCtrl.create({
-        message: 'Mmmm, buttered toast',
+        message: 'Campo Obrigatórios',
         duration: 2000,
         position: 'top'
       });
@@ -86,5 +94,10 @@ export class CadastrarGrupoPage {
   funcaoPraRedirecionarPraOutroLugar(){
     this.nav.pop();
   }
+
+  fechar(){
+      this.viewCtrl.dismiss();
+  }
+
 
 }

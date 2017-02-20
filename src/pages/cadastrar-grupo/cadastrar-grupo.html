@@ -1,8 +1,15 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Cadastrar Grupo</ion-title>
-  </ion-navbar>
+  <ion-toolbar>
+    <ion-title>Grupo</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="fechar()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
+
 <ion-content class="cadastrar-evento bg-branco">
 
   <form class="formCadastrarEvento" #grupoForm="ngForm" novalidate>
@@ -18,9 +25,9 @@
       <ion-textarea rows="3"  type="text" [(ngModel)]="grupoCad.descricao"  ngModel name="descricao" #descricao="ngModel" required></ion-textarea>
     </ion-item>
 
-    <button ion-button full  style="color: #209760; margin-left: 5px; margin-right: 5px;" [disabled]="!grupoForm.valid" (click)="funcaoPraAceitarSubmeterForm(grupoForm)">
-      <ion-icon name="checkmark-circle"></ion-icon>
-    </button>
+    <ion-fab bottom center  (click)="funcaoPraAceitarSubmeterForm(grupoForm)">
+      <button [disabled]="!grupoForm.valid" ion-fab color="add"><ion-icon name="checkmark"></ion-icon></button>
+    </ion-fab>
 
 
   </form>
